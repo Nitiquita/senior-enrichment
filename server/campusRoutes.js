@@ -1,6 +1,6 @@
 var router = require('express').Router();
-// var Campus = require('../models').Campus;
-var Campus = require("../db/models/campus")
+var Campus = require('../db/models').Campus;
+// var Campus = require("../db/models/campus")
 // var Campus = db.model('campus')
 
 router.get('/', (req, res, next) => {
