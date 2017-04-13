@@ -1,0 +1,15 @@
+navbar {
+    position: fixed;
+    background-color: white;
+    padding: 25px;
+}
+
+navbar .nav-item {
+    color: darkred;
+    font-size: 24px;
+
+}
+
+navbar wrap {
+    padding: 0px 15px
+}
