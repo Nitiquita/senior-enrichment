@@ -6,8 +6,9 @@ var Student = db.model('student')
 router.get('/', (req, res, next) => {
     Student.findAll({})
         .then(array => {
-            res.send(array)
-        }).next()
+            res.send(array);
+            next();
+        }).catch(next)
 })
 
 router.get('/:id',(req, res, next) => {

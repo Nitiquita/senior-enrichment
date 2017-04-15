@@ -8,7 +8,13 @@ router.get('/', (req, res, next) => {
     Campus.findAll({})
         .then(array => {
             res.json(array)
-        }).next()
+            next()
+        }).catch((err) => {
+            //error handling here 
+            next()
+        })
+        next()
+
 })
 
 router.get('/:id', (req, res, next) => {
@@ -18,7 +24,11 @@ router.get('/:id', (req, res, next) => {
         }
     }).then(campus => {
         res.send(campus)
-    }).next()
+        next()
+    }).catch((err) => {
+        //error handling here 
+        next()
+    })
 })
 
 
