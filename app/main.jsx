@@ -14,27 +14,35 @@ import { browserHistory } from "react-router"
 
 import axios from "axios"
 
-import { fetchCampuses } from './redux'
+import { fetchCampuses, fetchStudents } from './redux'
 
 
 
-// const onMainEnter = () => {
-//   axios.get('/api/campuses')
-//     .then(res => {
-//       const campuses = res.data
-//     })
-// }
 
-const onCampusesEnter = () => {
-    store.dispatch(fetchCampuses())
-}
+
+
+const onAppEnter = () => {
+
+  const pCampuses = axios.get('/api/campuses');
+  const pStudents = axios.get('/api/students');
+
+  return Promise
+    .all([pCampuses, pStudents])
+    .then(responses => responses.map(r => r.data))
+    .then(([campuses, students]) => {
+      store.dispatch(fetchCampuses(campuses));
+      store.dispatch(fetchStudents(students));
+    });
+};
+
+
 
 
 render(
   <Provider store={store}>
     <Router history={browserHistory} >
-      <Route path="/" component={Home}  />
-      <Route path="/campuses" component={Campuses} onCampusesEnter={onCampusesEnter}/>
+      <Route path="/" component={Home} onEnter={onAppEnter} />
+      <Route path="/campuses" component={Campuses} />
       <Route path="/campuses/:id" component={Campus} />
       <Route path="/students" component={Students} />
     </Router>

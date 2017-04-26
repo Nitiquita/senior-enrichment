@@ -4,7 +4,7 @@ import axios from 'axios'
 import Campuses, { campuses } from "./Campuses"
 
 
-//is this a dumb component if I need to be able to show all students?
+
 export default class Students extends Component {
     constructor(props) {
         super(props)
@@ -32,7 +32,7 @@ export default class Students extends Component {
     render() {
         return (
             <div>
-            {console.log(campuses)}
+            {console.log(props)}
                 <div>
                     {/*<NavBar />*/}
                 </div>
@@ -52,8 +52,6 @@ export default class Students extends Component {
                                 <tr key={student.id}>
                                     <td>{student.id}</td>
                                     <td>{student.name}</td>
-                                    {console.log(this.getCampus(student.campusId))}
-                                    <td>{this.getCampus(student.campusId)}</td>
                                     <td>X</td>
                                 </tr>)}
                         </tbody>

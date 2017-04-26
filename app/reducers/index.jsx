@@ -7,14 +7,19 @@ const initialState = {
 }
 
 const rootReducer = function (state = initialState, action) {
+
   const newState = Object.assign({}, state);
+
   switch (action.type) {
+
     case FETCH_CAMPUSES:
-      newState.campuses = campuses
-      break
+      newState.campuses = action.type
+      break;
+
     case FETCH_STUDENTS:
-      newState.students = students
-      break
+      newState.students = action.students
+      break;
+
     default: return state
   }
   return newState
