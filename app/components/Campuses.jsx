@@ -34,7 +34,6 @@ export default class Campuses extends Component {
     render() {
         return <div>
             <div>
-                {console.log(this.state)}
                 <ul>
                     {/*<NavBar></NavBar>*/}
                     {this.state.campuses.map((campus, idx) =>

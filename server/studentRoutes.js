@@ -12,13 +12,11 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id',(req, res, next) => {
-    Student.findById({
-        where: {
-            id: req.params.id
-        }
-    }).then(student=> {
+    Student.findById(req.params.id)
+    .then(student => {
         res.send(student)
-    }).next()
+        next();
+    }).catch(next)
 })
 
 router.put('/:id', (req, res, next) => {

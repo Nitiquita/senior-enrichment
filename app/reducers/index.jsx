@@ -13,14 +13,13 @@ const rootReducer = function (state = initialState, action) {
   switch (action.type) {
 
     case FETCH_CAMPUSES:
-      newState.campuses = action.type
+      newState.campuses = action.campuses
       break;
 
     case FETCH_STUDENTS:
       newState.students = action.students
       break;
 
-    default: return state
   }
   return newState
 };

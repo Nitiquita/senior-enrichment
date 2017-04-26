@@ -10,11 +10,12 @@ import Home from './components/Home'
 import Campuses from './components/Campuses'
 import Students from './components/Students'
 import Campus from './components/Campus'
+import Student from './components/Student'
 import { browserHistory } from "react-router"
 
 import axios from "axios"
 
-import { fetchCampuses, fetchStudents } from './redux'
+import { fetchCampuses, fetchStudents, fetchCampusById, fetchStudentById } from './redux'
 
 
 
@@ -35,7 +36,15 @@ const onAppEnter = () => {
     });
 };
 
+const onCampusEnter = function (nextRouterState) {
+  const campusId = nextRouterState.params.id;
+  store.dispatch(fetchCampusById(campusId));
+};
 
+const onStudentEnter = function (nextRouterState) {
+  const studentId = nextRouterState.params.id;
+  store.dispatch(fetchStudentById(studentId));
+};
 
 
 render(
@@ -43,8 +52,9 @@ render(
     <Router history={browserHistory} >
       <Route path="/" component={Home} onEnter={onAppEnter} />
       <Route path="/campuses" component={Campuses} />
-      <Route path="/campuses/:id" component={Campus} />
+      <Route path="/campuses/:id" component={Campus} onEnter={onCampusEnter} />
       <Route path="/students" component={Students} />
+      <Route path="/students/:id" component={Student} onEnter={onStudentEnter}/>
     </Router>
   </Provider>,
   document.getElementById('main')

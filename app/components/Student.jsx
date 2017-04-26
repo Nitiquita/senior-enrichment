@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from "./NavBar"
-import axios from 'axios'
 
-export default function Campus(props) {
+export default function Student(props) {
     return (
         <div>
         {console.log(props)}

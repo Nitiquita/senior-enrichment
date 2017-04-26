@@ -7,9 +7,6 @@
 const Student = require('./student')
 const Campus = require('./campus')
 
-console.log(Student, Campus)
-
-
 Student.belongsTo(Campus)
 
 

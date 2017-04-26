@@ -4,7 +4,6 @@ var Campus = require('../db/models').Campus;
 // var Campus = db.model('campus')
 
 router.get('/', (req, res, next) => {
-    console.log(Campus)
     Campus.findAll({})
         .then(array => {
             res.json(array)
@@ -18,11 +17,8 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    Campus.findById({
-        where: {
-            id: req.params.id
-        }
-    }).then(campus => {
+    Campus.findById(req.params.id)
+    .then(campus => {
         res.send(campus)
         next()
     }).catch((err) => {

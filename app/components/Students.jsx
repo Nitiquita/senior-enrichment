@@ -32,7 +32,7 @@ export default class Students extends Component {
     render() {
         return (
             <div>
-            {console.log(props)}
+
                 <div>
                     {/*<NavBar />*/}
                 </div>

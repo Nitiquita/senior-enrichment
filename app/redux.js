@@ -19,7 +19,7 @@ const getCampuses = (campuses) => {
     }
 }
 
-const getCampusById = (campusId) => {
+const getCampus = (campus) => {
     return {
         type: FETCH_CAMPUS, 
         campus
@@ -33,7 +33,7 @@ const getStudents = (students) => {
     }
 }
 
-const getStudentById = (studentId) => {
+const getStudent = (student) => {
     return {
         type: FETCH_STUDENT, 
         student
@@ -58,10 +58,17 @@ export const fetchStudents = () => dispatch => {
     })
 } 
 
-const mapStateToProps = (state) => {
-    return {
-        campuses: state.campuses 
-    }
+export const fetchCampusById = (campusId) => dispatch => {
+    axios.get(`/api/campuses/${campusId}`)
+    .then(res => {
+        console.log(campusId)
+        dispatch(getCampus(res.data))
+    })
 }
 
-export default connect(mapStateToProps)(Campuses)
+export const fetchStudentById = (studentId) => dispatch => {
+    axios.get(`/api/students/${studentId}`)
+    .then(res => {
+        dispatch(getStudent(res.data))
+    })
+}
