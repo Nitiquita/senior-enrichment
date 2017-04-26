@@ -23,17 +23,11 @@ export default class Campuses extends Component {
     componentWillUnmount() {
         this.unsubscribe();
     }
-    // componentDidMount() {
-    //     axios.get('/api/campuses')
-    //         .then(res => {
-    //             const campuses = res.data
-    //             this.setState({ campuses })
-    //         })
-    // }
 
     render() {
         return <div>
             <div>
+            {console.log(this.state, this.props)}
                 <ul>
                     {/*<NavBar></NavBar>*/}
                     {this.state.campuses.map((campus, idx) =>
