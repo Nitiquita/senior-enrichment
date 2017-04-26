@@ -4,8 +4,8 @@ import Campuses from './components/Campuses'
 
 /* -----------------    ACTIONS     ------------------ */
 
-export const FETCH_CAMPUSES = 'FETCH_CAMPUSES';
-export const FETCH_STUDENTS = 'FETCH_STUDENTS';
+const FETCH_CAMPUSES = 'FETCH_CAMPUSES';
+const FETCH_STUDENTS = 'FETCH_STUDENTS';
 
 /* ------------   ACTION CREATORS     ------------------ */
 
@@ -24,7 +24,9 @@ const getCampusById = () => {
 
 export const fetchCampuses = () => dispatch => {
     axios.get('/api/campuses')
-    .then(res => dispatch(getCampuses(res.data)))
+    .then(res => {
+        dispatch(getCampuses(res.data))
+    })
 } 
 
 const mapStateToProps = (state) => {

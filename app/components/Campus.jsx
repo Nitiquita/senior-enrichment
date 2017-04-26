@@ -14,7 +14,6 @@ export default function Campus(props) {
     }
     return (
         <div>
-            {console.log()}
             <NavBar />
 
         </div>

@@ -8,12 +8,21 @@ import Students from './Students'
 import store from '../store'
 
 export default class Campuses extends Component {
+
     constructor(props) {
         super(props)
         this.state = store.getState()
     }
 
+    componentDidMount() {
+        this.unsubscribe = store.subscribe(() => {
+            this.setState(store.getState());
+        });
+    }
 
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
     // componentDidMount() {
     //     axios.get('/api/campuses')
     //         .then(res => {
@@ -25,7 +34,7 @@ export default class Campuses extends Component {
     render() {
         return <div>
             <div>
-            {console.log(this.props)}
+                {console.log(this.state)}
                 <ul>
                     {/*<NavBar></NavBar>*/}
                     {this.state.campuses.map((campus, idx) =>
@@ -43,5 +52,3 @@ export default class Campuses extends Component {
 
 
 
-//axios requests - intial fetching would go in an onEnter hook where react stuff is 
-//
