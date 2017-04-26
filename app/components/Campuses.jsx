@@ -1,74 +1,46 @@
 
 import React, { Component } from 'react';
+import { Link } from 'react-router'
+import { connect } from 'react-redux'
 import NavBar from './NavBar';
 import axios from 'axios'
+import Students from './Students'
+import store from '../store'
 
 export default class Campuses extends Component {
-    constructor() {
-        super()
-        this.example = ["c1", "c2", "c3"]
-        this.getCampuses = () => {
-            axios.get('/api/campuses')
-                .then(res => {
-                    console.log("res.data", res.data)
-                    return res.data;
-                }).catch((err) => {
-                    console.log(err)
-                    return ["x", "y", "z"];
-                })
-        }
-        //this.state = {campuses: campuses}
-    }
-    // handleClick() => {
-    outputABC() {
-        return ["a", "b", "c"]
+    constructor(props) {
+        super(props)
+        this.state = store.getState()
     }
 
+
+    // componentDidMount() {
+    //     axios.get('/api/campuses')
+    //         .then(res => {
+    //             const campuses = res.data
+    //             this.setState({ campuses })
+    //         })
     // }
-    getCampuses() {
-        axios.get('/api/campuses')
-            .then(res => {
-                console.log("res.data", res.data)
-                return res.data;
-            }).catch((err) => {
-                console.log(err)
-                return ["x", "y", "z"];
-            })
-    }
-    componentWillMount() {
-        this.campuses = this.getCampuses()
-    }
+
     render() {
         return <div>
-            {console.log(this.getCampuses())}
-            <div><ul>
-                {/*<NavBar></NavBar>*/}
-                <li>Hello World!</li>
-                {this.outputABC().map((letter) => {
-                    return <li>{letter}</li>
-                })}
-                {this.example.map((foo) => {
-                    return <li>{foo}</li>
-                })}
-                {this.campuses.map((campus) => {
-                    return <li>{campus}</li>
-                })}
-            </ul></div>
+            <div>
+            {console.log(this.props)}
+                <ul>
+                    {/*<NavBar></NavBar>*/}
+                    {this.state.campuses.map((campus, idx) =>
+                        <Link key={idx} to={`/campuses/${campus.id}`}>
+                            <li >{campus.name}
+                                <img src={`images/${campus.name}.jpeg`} />
+                            </li>
+                        </Link>
+                    )}
+                </ul>
+            </div>
         </div>
-
-        // return (
-        //     <div>
-        //         {console.log("campuses", getCampuses())}
-        //         <ul>
-        //             <li>{this.getCampuses()}</li>
-        //         {/*campuses.map(campus => {
-        //             <li onClick={handleClick}> {campus.image}<li>
-        //         })*/}
-        //         </ul>
-        //     </div>
-        // )
     }
 }
+
 
 
 //axios requests - intial fetching would go in an onEnter hook where react stuff is 

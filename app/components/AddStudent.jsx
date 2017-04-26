@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 export default function AddStudent() {
+
+    
     return (
         <form>
             <input
