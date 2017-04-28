@@ -6,6 +6,11 @@ import { Router, Route } from 'react-router'
 
 import store from './store'
 import Root from './components/Root'
+
+
+
+
+
 import Home from './components/Home'
 import Campuses from './components/Campuses'
 import Students from './components/Students'
@@ -16,10 +21,6 @@ import { browserHistory } from "react-router"
 import axios from "axios"
 
 import { fetchCampuses, fetchStudents, fetchCampusById, fetchStudentById } from './redux'
-
-
-
-
 
 
 const onAppEnter = () => {

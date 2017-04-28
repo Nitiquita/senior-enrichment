@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { FETCH_CAMPUSES, FETCH_STUDENTS, FETCH_STUDENT, FETCH_CAMPUS } from '../action-creators/actions'
+import { FETCH_CAMPUSES, FETCH_STUDENTS, FETCH_STUDENT, FETCH_CAMPUS } from '../redux'
 
 const initialState = {
   campuses: [],
@@ -18,24 +18,25 @@ const rootReducer = function (state = initialState, action) {
   switch (action.type) {
 
     case FETCH_CAMPUSES:
-      newState.campuses = action.campuses
+      newState.campuses = action.campuses;
       break;
 
     case FETCH_STUDENTS:
-      newState.students = action.students
+      newState.students = action.students;
       break;
 
     case FETCH_CAMPUS:
-      newState.selectedCampus = action.campus
+      newState.selectedCampus = action.campus;
       break;
 
     case FETCH_STUDENT:
-      newState.selectedStudent= action.student
+      newState.selectedStudent = action.student;
       break;
 
 
   }
-  return newState
+
+  return newState;
 };
 
 export default rootReducer

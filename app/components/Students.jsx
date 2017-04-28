@@ -2,37 +2,33 @@ import React, { Component } from 'react';
 import NavBar from "./NavBar"
 import axios from 'axios'
 import Campuses, { campuses } from "./Campuses"
-
+import store from '../store'
+import { fetchCampusById, getCampus } from '../redux'
 
 
 export default class Students extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            students: [],
-            campuses: []
-        }
+        this.state = store.getState()
     }
     componentDidMount() {
-        axios.get('/api/students')
-            .then(res => {
-                const students = res.data.map(elem => {
-                    return elem
-                })
-                this.setState({ students })
-            })
-
+        this.unsubscribe = store.subscribe(() => {
+            this.setState(store.getState());
+        });
     }
-    getCampus(campusId) {
-        return campuses.filter(campus => {
-            return campus.id === campusId
-        })
+
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
+
+    fetchCampusById(campusId) {
+        store.dispatch(getCampus(campusId))
     }
 
     render() {
         return (
             <div>
-
+            {console.log(this.props)}
                 <div>
                     {/*<NavBar />*/}
                 </div>

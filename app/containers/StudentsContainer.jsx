@@ -1,14 +1,11 @@
 import Students from '../components/Students';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state) => {
-  return {
-    students: state.students
-  };
+const mapState = ({students}) => ({students})
 };
 
 const StudentsContainer = connect(
-  mapStateToProps
+  mapState, null
 )(Students);
 
 export default StudentsContainer;

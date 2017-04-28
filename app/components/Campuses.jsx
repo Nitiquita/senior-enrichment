@@ -7,6 +7,7 @@ import axios from 'axios'
 import Students from './Students'
 import store from '../store'
 
+
 export default class Campuses extends Component {
 
     constructor(props) {
@@ -26,8 +27,8 @@ export default class Campuses extends Component {
 
     render() {
         return <div>
+        {console.log('props', this.props)}
             <div>
-            {console.log(this.state, this.props)}
                 <ul>
                     {/*<NavBar></NavBar>*/}
                     {this.state.campuses.map((campus, idx) =>

@@ -4,10 +4,10 @@ import Campuses from './components/Campuses'
 
 /* -----------------    ACTIONS     ------------------ */
 
-const FETCH_CAMPUSES = 'FETCH_CAMPUSES';
-const FETCH_CAMPUS = 'FETCH_CAMPUS';
-const FETCH_STUDENTS = 'FETCH_STUDENTS';
-const FETCH_STUDENT = 'FETCH_STUDENT'
+export const FETCH_CAMPUSES = 'FETCH_CAMPUSES';
+export const FETCH_CAMPUS = 'FETCH_CAMPUS';
+export const FETCH_STUDENTS = 'FETCH_STUDENTS';
+export const FETCH_STUDENT = 'FETCH_STUDENT'
 
 
 /* ------------   ACTION CREATORS     ------------------ */
