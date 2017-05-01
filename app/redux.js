@@ -7,39 +7,52 @@ import Campuses from './components/Campuses'
 export const FETCH_CAMPUSES = 'FETCH_CAMPUSES';
 export const FETCH_CAMPUS = 'FETCH_CAMPUS';
 export const FETCH_STUDENTS = 'FETCH_STUDENTS';
-export const FETCH_STUDENT = 'FETCH_STUDENT'
+export const FETCH_STUDENT = 'FETCH_STUDENT';
+export const FETCH_STUDENTS_AT_CAMPUS = 'FETCH_STUDENTS_AT_CAMPUS';
+export const ADD_CAMPUS = 'ADD_CAMPUS';
 
 
 /* ------------   ACTION CREATORS     ------------------ */
 
-const getCampuses = (campuses) => {
+export const getCampuses = (campuses) => {
     return {
         type: FETCH_CAMPUSES,
         campuses
     }
 }
 
-const getCampus = (campus) => {
+export const getCampus = (campus) => {
     return {
         type: FETCH_CAMPUS, 
         campus
     }
 }
 
-const getStudents = (students) => {
+export const getStudents = (students) => {
     return { 
         type: FETCH_STUDENTS, 
         students
     }
 }
 
-const getStudent = (student) => {
+export const getStudent = (student) => {
     return {
         type: FETCH_STUDENT, 
         student
     }
 }
 
+export const getStudentsAtCampus = (students) => {
+    return {
+        type: FETCH_STUDENTS_AT_CAMPUS, 
+        students
+    }
+}
+
+export const addCampus = campus => ({
+  type: ADD_CAMPUS,
+  campus
+})
 
 
 /* ------------       DISPATCHERS     ------------------ */
@@ -61,7 +74,7 @@ export const fetchStudents = () => dispatch => {
 export const fetchCampusById = (campusId) => dispatch => {
     axios.get(`/api/campuses/${campusId}`)
     .then(res => {
-        console.log(campusId)
+        console.log('campusId', campusId)
         dispatch(getCampus(res.data))
     })
 }
@@ -72,3 +85,4 @@ export const fetchStudentById = (studentId) => dispatch => {
         dispatch(getStudent(res.data))
     })
 }
+

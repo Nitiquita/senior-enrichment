@@ -6,7 +6,7 @@ var Campus = require('../db/models').Campus;
 router.get('/', (req, res, next) => {
     Campus.findAll({})
         .then(array => {
-            res.json(array)
+            res.send(array)
             next()
         }).catch((err) => {
             //error handling here 
@@ -28,18 +28,19 @@ router.get('/:id', (req, res, next) => {
 })
 
 
-router.post('/', (req, res, next) => {
+router.post('/new', (req, res, next) => {
     Campus.create(req.body)
         .then(campus => {
             res.send(campus)
-        }).next()
+            next()
+        }).catch()
 })
 
 
 router.put('/:id', (req, res, next) => {
     Campus.findById(req.params.id)
         .then(campus => {
-            return book.update(req.body);
+            return campus.update(req.body);
         })
         .then(campus => {
             res.json(campus)

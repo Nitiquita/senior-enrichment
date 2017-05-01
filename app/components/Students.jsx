@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import NavBar from "./NavBar"
-import axios from 'axios'
-import Campuses, { campuses } from "./Campuses"
+import { connect } from 'react-redux';
 import store from '../store'
+import axios from 'axios'
+import { Link } from 'react-router'
+
+import NavBar from "./NavBar"
+import Campuses, { campuses } from "./Campuses"
 import { fetchCampusById, getCampus } from '../redux'
 
 
@@ -28,7 +31,7 @@ export default class Students extends Component {
     render() {
         return (
             <div>
-            {console.log(this.props)}
+            {console.log(this.state)}
                 <div>
                     {/*<NavBar />*/}
                 </div>
@@ -45,9 +48,15 @@ export default class Students extends Component {
                                 <th></th>
                             </tr>
                             {this.state.students.map(student =>
+                              
                                 <tr key={student.id}>
                                     <td>{student.id}</td>
-                                    <td>{student.name}</td>
+                                      
+                                    <td>
+                                    <Link to={`/students/${student.id}`}>
+                                    {student.name}
+                                    </Link>
+                                    </td>
                                     <td>X</td>
                                 </tr>)}
                         </tbody>
@@ -57,3 +66,14 @@ export default class Students extends Component {
         )
     }
 }
+
+const mapState = state => {
+    return {
+        students: state.students
+    }
+}
+
+
+const StudentsContainer = connect(
+  mapState, null
+)(Students);

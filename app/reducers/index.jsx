@@ -9,7 +9,6 @@ const initialState = {
 }
 
 
-//newState is not registering as next state
 
 const rootReducer = function (state = initialState, action) {
 
@@ -33,6 +32,8 @@ const rootReducer = function (state = initialState, action) {
       newState.selectedStudent = action.student;
       break;
 
+    default:
+      return state;
 
   }
 
