@@ -74,7 +74,6 @@ export const fetchStudents = () => dispatch => {
 export const fetchCampusById = (campusId) => dispatch => {
     axios.get(`/api/campuses/${campusId}`)
     .then(res => {
-        console.log('campusId', campusId)
         dispatch(getCampus(res.data))
     })
 }

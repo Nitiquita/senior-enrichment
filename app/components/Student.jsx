@@ -8,6 +8,7 @@ export default class Student extends Component {
     constructor() {
         super()
         this.state = store.getState()
+        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
@@ -20,10 +21,17 @@ export default class Student extends Component {
         this.unsubscribe();
     }
 
+    handleClick() {
+        
+    }
+
+
     render() {
+        const selectedStudent = this.state.selectedStudent
+        console.log(selectedStudent)
         return (
             <div>
-
+               <NavBar/> 
                 <ul>
                     <li>{this.state && this.state.selectedStudent.name}</li>
                     <li>{this.state && this.state.selectedStudent.email}</li> 
@@ -31,7 +39,10 @@ export default class Student extends Component {
                         return campus.id === this.state.selectedStudent.campusId ? <Link key={campus.id} to={`/campuses/${campus.id}`}> {campus.name} </Link>: null
                     })} Campus</li>
                 </ul>
+                <Link to={`/students/${selectedStudent.id}/editstudent`}> <button onClick={this.handleClick}> Edit Student </button> </Link> 
             </div>
+
+
         )
     }
 }

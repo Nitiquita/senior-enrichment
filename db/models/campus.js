@@ -7,4 +7,5 @@ module.exports = db.define('campus', {
   name: {
     type: Sequelize.STRING,
   } 
+  
 })

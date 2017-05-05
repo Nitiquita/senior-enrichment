@@ -19,22 +19,30 @@ router.get('/:id',(req, res, next) => {
     }).catch(next)
 })
 
-router.put('/:id', (req, res, next) => {
+router.post('/newstudent', (req, res, next) => {
+    Student.create(req.body)
+        .then(student => res.json(student))
+        .catch(next)
+})
+
+router.put('/:id/editstudent', (req, res, next) => {
     Student.findById(req.params.id)
         .then(student => {
+            console.log('req.params.id', req.params.id)
             return student.update(req.body);
         })
         .then(student => {
             res.json(student)
+            next()
         })
-        .next()
+        .catch(next)
 })
 
 router.delete('/:id',(req, res, next) => {
     Student.destroy({ where: { id: req.params.id } })
         .then(student => {
             res.sendStatus(204);
-        }).next();
+        }).catch(next)
 })
 
 module.exports = router;

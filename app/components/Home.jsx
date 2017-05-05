@@ -14,7 +14,7 @@ export default class Home extends Component {
             <div>
                 <NavBar />
                 <div>
-                    <img src="images/library.jpeg" />
+                    <img className='home' src="images/home.jpeg" />
                 </div>
 
             </div>
