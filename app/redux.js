@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { connect } from 'react-redux'
-import Campuses from './components/Campuses'
+
 
 /* -----------------    ACTIONS     ------------------ */
 
@@ -54,20 +54,19 @@ export const addCampus = campus => ({
   campus
 })
 
-
 /* ------------       DISPATCHERS     ------------------ */
 
 export const fetchCampuses = () => dispatch => {
     axios.get('/api/campuses')
     .then(res => {
-        dispatch(getCampuses(res.data))
+        typeof res.data === 'object' ? dispatch(getCampuses(res.data)) : window.location.reload();
     })
 } 
 
 export const fetchStudents = () => dispatch => {
     axios.get('/api/students')
     .then(res => {
-        dispatch(getStudents(res.data))
+        typeof res.data === 'object' ? dispatch(getStudents(res.data)) : window.location.reload();
     })
 } 
 

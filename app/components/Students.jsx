@@ -5,7 +5,8 @@ import axios from 'axios'
 import { Link } from 'react-router'
 
 import NavBar from "./NavBar"
-import Campuses, { campuses } from "./Campuses"
+import Campuses from "./Campuses"
+
 import { fetchCampusById, getCampus } from '../redux'
 
 
@@ -57,14 +58,19 @@ export default class Students extends Component {
             .then(res => {
                 this.state.students.push(res.data);
                 this.setState({ students: this.state.students })
+                var element1 = document.querySelector('#input1');
+                element1.value = '';
+                var element2 = document.querySelector('#input2');
+                element2.value = '';
             })
     }
 
     render() {
         return (
 
-            <div>
-            <NavBar/>
+            <div className='background'>
+
+                <NavBar />
                 <div>
                     <table>
                         <tbody>
@@ -96,15 +102,15 @@ export default class Students extends Component {
                         </tbody>
                     </table>
                 </div>
-                <form onSubmit={this.handleSubmit}>
-                    <div> Add New Student </div>
+                <form id='form' onSubmit={this.handleSubmit}>
+                    <div className='title'> Add New Student </div>
                     <div>
-                    <label> Student Name: </label>
-                    <input name='name' />
+                        <label> Student Name: </label>
+                        <input name='name' id='input1' />
                     </div>
                     <div>
-                    <label> Student Email: </label>
-                    <input name='email' />
+                        <label> Student Email: </label>
+                        <input name='email' id='input2' />
                     </div>
                     <select onChange={this.handleChange}>>
                     <option>-Select Campus-</option>

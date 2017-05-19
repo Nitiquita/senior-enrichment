@@ -1,0 +1,303 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 18, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 27, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 30, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 33, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 36, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 40, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 44, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 24, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.group, ul.store {
+  zoom: 1;
+}
+/* line 27, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.group:before, ul.store:before, .group:after, ul.store:after {
+  content: '';
+  display: table;
+}
+/* line 31, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.group:after, ul.store:after {
+  clear: both;
+}
+
+/* line 42, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+html {
+  margin: 1em auto;
+  max-width: 500px;
+}
+
+/* line 46, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+body {
+  color: #706c6e;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+/* line 50, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+::selection {
+  background: rgba(193, 159, 122, 0.5);
+}
+
+/* line 53, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+::-moz-selection {
+  background: rgba(193, 159, 122, 0.5);
+}
+
+/* line 59, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+a {
+  color: #a1805c;
+  text-decoration: none;
+}
+/* line 63, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+a:hover, a:focus {
+  color: #c29f79;
+}
+
+/* line 67, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+h1 {
+  color: #7ab2c1;
+  font: bold 22px/28px Tahoma, Arial, sans-serif;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+/* line 73, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+h2 {
+  color: #999;
+  font: italic 18px/24px Georgia, serif;
+  text-align: center;
+}
+
+/* line 78, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+h3 {
+  color: #848990;
+  font: bold 16px/20px Tahoma, Arial, sans-serif;
+  margin: 0 0 15px;
+}
+
+/* line 83, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+h4 {
+  color: #423e40;
+  font: italic 12px/17px Georgia, serif;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+/* line 89, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+p {
+  font-size: 14px;
+  line-height: 19px;
+  margin: 0 0 15px;
+}
+
+/* line 97, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+nav {
+  background: #e0e2e6;
+  font-size: 12px;
+  margin: 0 0 10px;
+  padding: 5px 15px;
+}
+/* line 102, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+nav li {
+  display: inline;
+  margin: 0 10px 0 0;
+}
+/* line 105, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+nav li a {
+  font-weight: bold;
+}
+
+/* line 110, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+aside {
+  font-style: italic;
+}
+/* line 112, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+aside p {
+  font-size: 10px;
+  margin: 0;
+}
+
+/* line 117, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+article h1 {
+  text-align: left;
+}
+
+/* line 120, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+footer figure {
+  background: #e0e2e6;
+  border: 1px solid #c5c9cf;
+  height: 88px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 15px;
+  width: 88px;
+}
+
+/* line 129, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+footer figure img {
+  border: 5px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 0 0 10px;
+}
+
+/* line 134, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+figcaption {
+  font-size: 12px;
+  line-height: 17px;
+}
+
+/* line 142, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.button,
+.more {
+  background: #7ab2c1;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 0 15px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+/* line 155, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.button:hover, .button:focus {
+  background: #6da3b2;
+}
+
+/* line 159, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.more {
+  line-height: 40px;
+  margin: 15px 0;
+  padding: 0 50px;
+}
+/* line 164, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.more:hover, .more:focus {
+  color: #fff;
+}
+
+/* line 168, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.newsletter {
+  background: rgba(64, 61, 63, 0.8);
+  color: #fff;
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+}
+/* line 174, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.newsletter a {
+  color: #7ab2c1;
+}
+
+/* line 178, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.disclaimer {
+  font: italic 12px Georgia, serif;
+}
+
+/* line 181, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.hours li {
+  padding: 5px 10px;
+}
+
+/* line 184, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.lonesome {
+  display: none;
+}
+
+/* line 189, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+ul.store li {
+  border: 5px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  float: left;
+  margin: 0 15px 15px 0;
+}
+/* line 194, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+ul.store li img {
+  display: block;
+}
+
+/* line 199, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.logo {
+  margin: 0 auto 15px;
+}
+
+/* line 202, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.sidebar {
+  background: 0;
+  padding: 0;
+}
+/* line 205, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.sidebar li {
+  display: block;
+  margin: 0 0 10px;
+}
+/* line 208, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+.sidebar li a {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* line 214, /srv/cssxcountry/releases/1479828624/app/assets/stylesheets/iframe-style.css.scss.erb */
+a.store {
+  background: #7ab2c1;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 30px;
+  margin: 0 0 0 10px;
+  text-align: center;
+  width: 200px;
+}

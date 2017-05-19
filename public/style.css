@@ -4,19 +4,102 @@ navbar {
 }
 
 navbar .nav-item {
-    color: darkred;
-    font-size: 24px;
+    color: #483d8b;
+    font-size: 36px;
 
 }
+
+
 
 navbar wrap {
     padding: 0px 15px
 }
 
-.home {
-    background-position: center
-}
-
 li {
     list-style-type: none
+}
+
+table {
+    width: 100%;
+    font-size: 24px;
+    margin-left: 20px;
+
+}
+
+th {
+    height: 50px;
+    font-size: 36px;
+}
+
+tr:nth-child(even) {
+    background-color: #b0e0e6
+}
+
+p {
+    font-size: 36px;
+    margin-left: 20px
+}
+
+h1 {
+    font-size: 30px
+}
+
+.home {
+    width:100%
+}
+
+.title: {
+    font-size: 36px;
+}
+
+
+.edit {
+    width: 100%;
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+.margins {
+    margin-top: 30px;
+}
+
+#images {
+    float: left;
+    font-size: 24px;
+    margin-right: 150px;
+    margin-top: 50px;
+}
+
+#form {
+    padding-top: 25px;
+    padding-left: 40px;
+    font-size: 24px;
+    clear: left;
+}
+
+#button {
+    margin-top: 20px;
+}
+
+#names {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+
+#academy {
+    color: darkred;
+    font-size: 48px;
+}
+
+#home {
+    color: goldenrod
+}
+
+#students {
+    color: goldenrod
+}
+
+#campuses {
+    color: goldenrod
 }

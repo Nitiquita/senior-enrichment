@@ -24,7 +24,7 @@ export default class EditStudent extends Component {
     }
 
     handleChange(event) {
-                        const campus = event.target.value
+        const campus = event.target.value
         const selectedCampus = this.state.campuses.filter(c => {
             return campus === c.name ? c.id : null
         })
@@ -49,18 +49,26 @@ export default class EditStudent extends Component {
     render() {
         const selectedStudent = this.state && this.state.selectedStudent
         return (
-            <div>
-            <NavBar/> 
-                <form onSubmit={this.handleSubmit}>
+            <div className='background'>
+                <NavBar />
+                <form className="edit" onSubmit={this.handleSubmit}>
+                    <div className="margins"> 
                     Name:   <input placeholder={`${selectedStudent.name}`} name='name' />
+                    </div>
+                    <div className="margins">
                     Email:   <input placeholder={`${selectedStudent.email}`} name='email' />
+                    </div>
+                    <div className="margins">
                     <select onChange={this.handleChange}>>
                     <option>-Select Campus-</option>
                         {this.state.campuses.map(campus => {
                             return <option key={campus.id}>{campus.name}</option>
                         })}
                     </select>
+                    </div>
+                    <div>
                     <button>Submit</button>
+                    </div>
                 </form>
             </div>
         )

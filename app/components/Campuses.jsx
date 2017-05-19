@@ -7,6 +7,7 @@ import { browserHistory } from "react-router"
 
 import NavBar from './NavBar';
 import Students from './Students'
+
 import store from '../store'
 import { addCampus, getCampuses, fetchCampuses } from '../redux'
 
@@ -15,7 +16,6 @@ export default class Campuses extends Component {
     constructor(props) {
         super(props)
         this.state = store.getState()
-        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClick = this.handleClick.bind(this)
     }
@@ -30,22 +30,23 @@ export default class Campuses extends Component {
         this.unsubscribe();
     }
 
-    handleChange(event) {
-        const value = event.target.value;
-        this.setState({ value: event.target.value });
-    }
-
-
 
     handleSubmit(event) {
         event.preventDefault();
-        const newCampus = this.state.value
-        axios.post(`/api/campuses/newcampus`, { name: newCampus })
+        var newCampus = event.target.campus.value;
+        var newImage = event.target.image.value;
+        axios.post(`/api/campuses/newcampus`, { name: newCampus, imgSrc: newImage })
             .then(res => {
+                console.log(res.data)
                 this.state.campuses.push(res.data);
                 this.setState({ campuses: this.state.campuses })
+                var element1 = document.querySelector('#input1');
+                element1.value = '';
+                var element2 = document.querySelector('#input2');
+                element2.value = '';
+
             })
-        
+
     }
 
     handleClick(event) {
@@ -62,18 +63,18 @@ export default class Campuses extends Component {
     }
 
     render() {
-        return <div>
-        <NavBar/> 
+        return (
+            <div className='background'>
+                <NavBar />
 
-            <div >
                 <ul>
                     {this.state.campuses.map((campus, idx) =>
-                        <div key={idx}>
+                        <div id="images" key={idx}>
                             <Link to={`/campuses/${campus.id}`}>
-                                <li>{campus.name}
-                                
-                                    <img src={`images/${campus.name}.jpeg`} />
-                                </li>
+                                <li>{campus.name}</li>
+                                <li>
+                                    <img src={campus.imgSrc} alt="planet image"/>
+                                    </li>
                             </Link>
                             <button value={campus.id} onClick={this.handleClick}>
                                 DELETE
@@ -81,16 +82,21 @@ export default class Campuses extends Component {
                         </div>
                     )}
                 </ul>
+
+                <form id="form" onSubmit={this.handleSubmit}>
+                    <div className="title"> Add New Campus </div>
+                    <div>
+                    <label> Campus Name: </label>
+                    <input name='campus' id='input1' onChange={this.handleChange} />
+                    </div>
+                    <div>
+                    <label> Image URL: </label>
+                    <input name='image' id='input2' onChange={this.handleChange} placeholder="Optional"/>
+                    </div>
+                    <button>Submit</button>
+                </form>
             </div>
-
-            <form onSubmit={this.handleSubmit}>
-                <div> Add New Campus </div> 
-                <label> Campus Name: </label>
-                <input onChange={this.handleChange} />
-                <button>Submit</button>
-            </form>
-
-        </div>
+        )
     }
 }
 

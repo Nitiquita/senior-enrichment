@@ -55,23 +55,27 @@ export default class Campus extends Component {
 
     render() {
         return (
-            <div>
-            <NavBar/> 
-                <h1>{this.state.selectedCampus.name} Campus</h1>
-                <ul>Students
+            <div className='background'>
+                <NavBar />
+                <p>{this.state.selectedCampus.name} Campus</p>
+                <ul><h1>Students</h1>
                 {this.state.students.map(student => {
                         return student.campusId === this.state.selectedCampus.id ?
-                            <div key={student.id} ><li> <Link to={`/students/${student.id}`}>{student.name}</Link> <button value={student.id} onClick={this.handleClick} > DELETE
+                            <div key={student.id} ><li id="names" > <Link to={`/students/${student.id}`}>{student.name}</Link> <button value={student.id} onClick={this.handleClick} > DELETE
                             </button> </li> </div> : null
                     })}
                 </ul>
-                <form onSubmit={this.handleSubmit}>
+                <form id="form" onSubmit={this.handleSubmit}>
                     <div> Add New Student </div>
-                <div> Student Name: </div>
-                    <input name='name' />
+                    <div>
+                    <label> Student Name: </label>
+                    <input name='name' value={this.state.value}/>
+                    </div>
+                    <div>
                     <label> Student Email: </label>
-                    <input name='email' />
-                   <button>Submit</button>
+                    <input name='email' value={this.state.value}/>
+                    </div>
+                    <div> <button>Submit</button> </div>
                 </form>
 
             </div>

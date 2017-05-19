@@ -5,7 +5,11 @@ const initialState = {
   campuses: [],
   students: [],
   selectedCampus: {},
-  selectedStudent: {}
+  selectedStudent: {},
+  value: '',
+  name: '',
+  email: ''
+
 }
 
 

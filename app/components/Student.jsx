@@ -8,7 +8,6 @@ export default class Student extends Component {
     constructor() {
         super()
         this.state = store.getState()
-        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
@@ -21,25 +20,28 @@ export default class Student extends Component {
         this.unsubscribe();
     }
 
-    handleClick() {
-        
-    }
-
-
     render() {
         const selectedStudent = this.state.selectedStudent
-        console.log(selectedStudent)
         return (
-            <div>
-               <NavBar/> 
-                <ul>
-                    <li>{this.state && this.state.selectedStudent.name}</li>
-                    <li>{this.state && this.state.selectedStudent.email}</li> 
-                    <li>Attends {this.state && this.state.campuses.map(campus => {
-                        return campus.id === this.state.selectedStudent.campusId ? <Link key={campus.id} to={`/campuses/${campus.id}`}> {campus.name} </Link>: null
-                    })} Campus</li>
-                </ul>
-                <Link to={`/students/${selectedStudent.id}/editstudent`}> <button onClick={this.handleClick}> Edit Student </button> </Link> 
+            <div className='background'>
+                <NavBar />
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>NAME</th>
+                            <th>EMAIL</th>
+                            <th>CAMPUS</th>
+                        </tr>
+                        <tr>
+                            <td>{this.state && this.state.selectedStudent.name}</td>
+                            <td>{this.state && this.state.selectedStudent.email}</td>
+                            <td>{this.state && this.state.campuses.map(campus => {
+                                return campus.id === this.state.selectedStudent.campusId ? <Link key={campus.id} to={`/campuses/${campus.id}`}> {campus.name} </Link> : null
+                            })}</td>
+                        </tr>
+                        <Link to={`/students/${selectedStudent.id}/editstudent`}> <button id='button' onClick={this.handleClick}> Edit Student </button> </Link>
+                    </tbody>
+                </table>
             </div>
 
 

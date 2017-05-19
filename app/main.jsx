@@ -44,6 +44,18 @@ const onAppEnter = () => {
     });
 };
 
+const onCampusesEnter = () => {
+  const campuses = axios.get('/api/campuses');
+  store.dispatch(fetchCampuses(campuses));
+}
+
+const onStudentsEnter = () => {
+  const students = axios.get('/api/students');
+  store.dispatch(fetchStudents(students))
+}
+
+
+
 const onCampusEnter = function (nextRouterState) {
   const campusId = nextRouterState.params.id;
   const students = axios.get('/api/students');
@@ -66,12 +78,12 @@ render(
   <Provider store={store}>
     <Router history={browserHistory} >
       <Route path="/" component={Home} onEnter={onAppEnter} />
-      <Route path="/campuses" component={Campuses} />
+      <Route path="/campuses" component={Campuses} onEnter={onCampusesEnter}/>
       <Route path="/campuses/:id" component={Campus} onEnter={onCampusEnter} />
-      <Route path="/students" component={Students} />
+      <Route path="/students" component={Students} onEnter={onStudentsEnter}/>
       <Route path="/students/newstudent" />
       <Route path="/students/:id" component={Student} onEnter={onStudentEnter} />
-      <Route path="/students/:id/editstudent" component={EditStudent}  />
+      <Route path="/students/:id/editstudent" component={EditStudent} />
       <Route path="/campuses/newcampuses" component={AddCampus} />
     </Router>
   </Provider>,

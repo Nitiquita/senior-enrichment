@@ -1,0 +1,75 @@
+/*************************************
+
+   PDF.js Overrides
+
+**************************************/
+
+
+/*------------------------------------
+  Remove Background Images
+------------------------------------*/
+
+body,
+#toolbarContainer {
+  background-image: none;
+}
+
+/*------------------------------------
+  Position Adjustments
+------------------------------------*/
+
+html[dir='ltr'] #toolbarViewerLeft {
+  left: 5px;
+}
+html[dir='ltr'] #toolbarViewerRight {
+  right: 4px;
+}
+
+/*------------------------------------
+  Margin Adjustments
+------------------------------------*/
+
+#download {
+  margin-right: 0;
+}
+
+/*------------------------------------
+  Hide Elements
+------------------------------------*/
+
+#sidebarToggle,
+#toolbarViewerMiddle,
+#presentationMode,
+#print,
+#print.toolbarButton,
+#openFile,
+#openFile.toolbarButton,
+#secondaryToolbarToggle,
+.toolbarButtonSpacer,
+.verticalToolbarSeparator,
+html[dir='ltr'] .toolbarButton#secondaryToolbarToggle::before,
+html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before,
+.toolbarButton.bookmark,
+.secondaryToolbarButton.bookmark,
+.toolbarButton.openFile::before,
+.secondaryToolbarButton.openFile::before,
+.toolbarButton.presentationMode::before,
+.secondaryToolbarButton.presentationMode::before,
+.dropdownToolbarButton,
+#viewFind,
+#viewFind.toolbarButton::before,
+.toolbarLabel,
+.toolbarField.pageNumber,
+#fileInput {
+  display: none;
+}
+
+/*------------------------------------
+  Responsive Elements
+------------------------------------*/
+
+@media all and (max-width: 660px) {
+  #outerContainer #download {
+    display: block;
+  }
+}
