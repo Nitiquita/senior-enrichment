@@ -38,11 +38,12 @@ export default class EditStudent extends Component {
         event.preventDefault();
         const newStudentName = event.target.name.value
         const newStudentEmail = event.target.email.value
+        // should be pulled out and in your redux file -- KH
         axios.put(`/api/students/${this.state.selectedStudent.id}/editstudent`, { name: newStudentName, email: newStudentEmail, campusId: this.state.campusId })
             .then(res => {
                 console.log(res)
             })
-        window.location.replace(`/students/${this.state.selectedStudent.id}`)
+        window.location.replace(`/students/${this.state.selectedStudent.id}`) // you are using browserHistory and I would expect you to use browserHistory.push here -- KH
 
     }
 
@@ -53,7 +54,7 @@ export default class EditStudent extends Component {
                 <NavBar />
                 <form className="edit" onSubmit={this.handleSubmit}>
                     <div className="margins"> 
-                    Name:   <input placeholder={`${selectedStudent.name}`} name='name' />
+                    Name:   <input placeholder={`${selectedStudent.name}`} name='name' /> {/* These should be more than placeholders, so that when you update it doesn't go to empty strings for name and email (when we save) -- KH */}
                     </div>
                     <div className="margins">
                     Email:   <input placeholder={`${selectedStudent.email}`} name='email' />

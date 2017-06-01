@@ -42,14 +42,14 @@ export const getStudent = (student) => {
     }
 }
 
-export const getStudentsAtCampus = (students) => {
+export const getStudentsAtCampus = (students) => { 
     return {
-        type: FETCH_STUDENTS_AT_CAMPUS, 
+        type: FETCH_STUDENTS_AT_CAMPUS, // I don't see this in use in your reducer; let's talk about your thoughts here -- KH
         students
     }
 }
 
-export const addCampus = campus => ({
+export const addCampus = campus => ({ // why is your format for this action creator different from the ones before? -- KH
   type: ADD_CAMPUS,
   campus
 })
@@ -59,7 +59,7 @@ export const addCampus = campus => ({
 export const fetchCampuses = () => dispatch => {
     axios.get('/api/campuses')
     .then(res => {
-        typeof res.data === 'object' ? dispatch(getCampuses(res.data)) : window.location.reload();
+        typeof res.data === 'object' ? dispatch(getCampuses(res.data)) : window.location.reload(); // this is the iffy you were mentioning. Your routes (use of `next`) are probably the reason this was probably having issues. -- KH
     })
 } 
 

@@ -32,12 +32,12 @@ export default class Students extends Component {
 
     handleClick(event) {
         const studentId = event.target.value
-        axios.delete(`/api/students/${studentId}`)
+        axios.delete(`/api/students/${studentId}`) // this is changing your store. This should be in your redux.js with the rest of the axios requests! -- KH
             .then(res => {
                 const students = this.state.students.filter(student => {
                     return student.id != studentId
                 })
-                this.setState({ students: students })
+                this.setState({ students: students }) // not state, but the store is what we need to update -- KH
             })
     }
 
@@ -46,7 +46,7 @@ export default class Students extends Component {
         const selectedCampus = this.state.campuses.filter(c => {
             return campus === c.name ? c.id : null
         })
-        this.setState({ campusId: selectedCampus[0].id })
+        this.setState({ campusId: selectedCampus[0].id }) // what are you doing here? -- KH
     }
 
     handleSubmit(event) {
@@ -54,11 +54,12 @@ export default class Students extends Component {
         const newStudentName = event.target.name.value
         const newStudentEmail = event.target.email.value
 
+        // axios should be pulled out -- KH
         axios.post(`/api/students/newstudent`, { name: newStudentName, email: newStudentEmail, campusId: this.state.campusId })
             .then(res => {
-                this.state.students.push(res.data);
+                this.state.students.push(res.data); // this is a no-no and should be handled in the next line (but isn't quite right) and also this is the store not the state you should be updating -- KH
                 this.setState({ students: this.state.students })
-                var element1 = document.querySelector('#input1');
+                var element1 = document.querySelector('#input1'); // we should be able to get this off of the event since the event is the entire form, now we have access to the individual items in the form -- KH
                 element1.value = '';
                 var element2 = document.querySelector('#input2');
                 element2.value = '';
@@ -70,7 +71,7 @@ export default class Students extends Component {
 
             <div className='background'>
 
-                <NavBar />
+                <NavBar /> {/* this should be handled by nesting in the Home component. Not DRY as is -- KH */}
                 <div>
                     <table>
                         <tbody>

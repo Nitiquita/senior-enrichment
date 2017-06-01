@@ -32,26 +32,26 @@ import { fetchCampuses, fetchStudents, fetchCampusById, fetchStudentById } from 
 
 const onAppEnter = () => {
 
-  const pCampuses = axios.get('/api/campuses');
+  const pCampuses = axios.get('/api/campuses'); // this is done in fetchCampuses -- KH
   const pStudents = axios.get('/api/students');
 
   return Promise
     .all([pCampuses, pStudents])
     .then(responses => responses.map(r => r.data))
     .then(([campuses, students]) => {
-      store.dispatch(fetchCampuses(campuses));
+      store.dispatch(fetchCampuses(campuses)); // you are doing redundant work here -- KH
       store.dispatch(fetchStudents(students));
     });
 };
 
 const onCampusesEnter = () => {
   const campuses = axios.get('/api/campuses');
-  store.dispatch(fetchCampuses(campuses));
+  store.dispatch(fetchCampuses(campuses)); // fetchCampuses does not take a param. More redundant work -- KH
 }
 
 const onStudentsEnter = () => {
   const students = axios.get('/api/students');
-  store.dispatch(fetchStudents(students))
+  store.dispatch(fetchStudents(students)) // same as above -- KH
 }
 
 
@@ -61,23 +61,23 @@ const onCampusEnter = function (nextRouterState) {
   const students = axios.get('/api/students');
   const campuses = axios.get('/api/campuses');
   store.dispatch(fetchCampusById(campusId));
-  store.dispatch(fetchStudents(students))
+  store.dispatch(fetchStudents(students)) // you should already have these in your store; let's talk about what you are thinking here -- KH
   store.dispatch(fetchCampuses(campuses));
 };
 
 const onStudentEnter = function (nextRouterState) {
   const studentId = nextRouterState.params.id;
   const campuses = axios.get('/api/campuses');
-  store.dispatch(fetchStudentById(studentId));
+  store.dispatch(fetchStudentById(studentId)); // you should already have these in your store; let's talk about what you are thinking here -- KH
   store.dispatch(fetchCampuses(campuses));
 
 };
 
-
+// I would expect / to be the parent and the rest to be nested based on your onAppEnter function. And this would show me you know how to nest with different components which is big! -- KH
 render(
   <Provider store={store}>
     <Router history={browserHistory} >
-      <Route path="/" component={Home} onEnter={onAppEnter} />
+      <Route path="/" component={Home} onEnter={onAppEnter} /> 
       <Route path="/campuses" component={Campuses} onEnter={onCampusesEnter}/>
       <Route path="/campuses/:id" component={Campus} onEnter={onCampusEnter} />
       <Route path="/students" component={Students} onEnter={onStudentsEnter}/>

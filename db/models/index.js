@@ -7,7 +7,7 @@
 const Student = require('./student')
 const Campus = require('./campus')
 
-Student.belongsTo(Campus)
+Student.belongsTo(Campus) // I would honestly expect to see this relation both ways so we have the Sequelize benefits on both models -- KH
 
 
 module.exports = {Student, Campus}

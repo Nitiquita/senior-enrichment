@@ -35,12 +35,13 @@ export default class Campuses extends Component {
         event.preventDefault();
         var newCampus = event.target.campus.value;
         var newImage = event.target.image.value;
+        // should be in redux file -- KH
         axios.post(`/api/campuses/newcampus`, { name: newCampus, imgSrc: newImage })
             .then(res => {
                 console.log(res.data)
                 this.state.campuses.push(res.data);
                 this.setState({ campuses: this.state.campuses })
-                var element1 = document.querySelector('#input1');
+                var element1 = document.querySelector('#input1'); // get these off of the event -- KH
                 element1.value = '';
                 var element2 = document.querySelector('#input2');
                 element2.value = '';
@@ -51,7 +52,7 @@ export default class Campuses extends Component {
 
     handleClick(event) {
         const campusId = event.target.value
-        axios.delete(`/api/campuses/${campusId}`)
+        axios.delete(`/api/campuses/${campusId}`) // should be in redux file -- KH
             .then(res => {
                 const campuses = this.state.campuses.filter(campus => {
                     return campus.id != campusId
